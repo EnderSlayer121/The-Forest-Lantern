@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Texture2D" uid="uid://i6bfdk8w8si8" path="res://Main character .png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://bl3flsjus4r62" path="res://Main character back.png" id="1_hqtel"]
+[ext_resource type="Script" uid="uid://dgemna2cprj7k" path="res://player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cyg682pgk3nhv" path="res://Main character left.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cyt82knj5ge36" path="res://Main character right.png" id="4_2hs0m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jxqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hqtel")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4flbx")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2hs0m")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw050"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_sweqy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1jxqw")
+animation = &"front"
+autoplay = "front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_dw050")
