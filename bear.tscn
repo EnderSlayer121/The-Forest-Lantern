@@ -12,6 +12,14 @@ animations = [{
 "texture": ExtResource("2_py70x")
 }],
 "loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_py70x")
+}],
+"loop": true,
 "name": &"front",
 "speed": 5.0
 }, {
@@ -37,15 +45,19 @@ radius = 7.0
 
 [node name="Bear" type="CharacterBody2D"]
 collision_layer = 16
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_hq7sg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_whgdy")
-animation = &"front"
+animation = &"back"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_v5e2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_v5e2u")

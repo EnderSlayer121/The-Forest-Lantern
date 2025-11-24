@@ -27,3 +27,13 @@ func play_movement_animation(velocity: Vector2):
 		$AnimatedSprite2D.play("front")
 	elif velocity.y < 0:
 		$AnimatedSprite2D.play("back")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		print ("body is in group executed")
+		take_damage()
+
+func take_damage():
+	GameState.life_lost()
+	

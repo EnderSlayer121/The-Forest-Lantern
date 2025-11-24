@@ -45,7 +45,7 @@ animations = [{
 radius = 7.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_mask = 14
+collision_mask = 30
 script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -56,3 +56,11 @@ autoplay = "front"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_dw050")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_dw050")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

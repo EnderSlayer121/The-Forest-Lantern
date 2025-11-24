@@ -6,3 +6,6 @@
 
 [node name="Player" parent="." index="3"]
 position = Vector2(246, -92)
+
+[node name="Fire Crystal" parent="." index="5"]
+position = Vector2(72, -88)
