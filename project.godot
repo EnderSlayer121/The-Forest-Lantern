@@ -27,6 +27,7 @@ version_control/autoload_on_startup=true
 
 Player=""
 Crystal=""
+Enemy=""
 
 [input]
 
@@ -57,6 +58,7 @@ down={
 2d_physics/layer_2="Ground"
 2d_physics/layer_3="Decoration"
 2d_physics/layer_4="Crystals"
+2d_physics/layer_5="Enemies"
 
 [rendering]
 

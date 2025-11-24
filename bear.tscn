@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs6tt6xy8keao"]
+
+[ext_resource type="Script" uid="uid://kht08gf3arvv" path="res://bear.gd" id="1_hq7sg"]
+[ext_resource type="Texture2D" uid="uid://ddq3c6mqqptm8" path="res://Bear enemy.png" id="2_py70x"]
+[ext_resource type="Texture2D" uid="uid://s1ckwq17cu8g" path="res://bear enemy left (2).png" id="3_6uh6h"]
+[ext_resource type="Texture2D" uid="uid://cj66dfncc4ohk" path="res://Bear enemy right.png" id="4_q5r7r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whgdy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_py70x")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6uh6h")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q5r7r")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5e2u"]
+radius = 7.0
+
+[node name="Bear" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 7
+script = ExtResource("1_hq7sg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_whgdy")
+animation = &"front"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_v5e2u")
