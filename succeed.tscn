@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://jkyyi31rcuwm"]
+[gd_scene load_steps=3 format=3 uid="uid://dpabf6ocequa0"]
 
-[ext_resource type="Script" uid="uid://dvxfn0yqkh4qr" path="res://start.gd" id="1_l0awv"]
+[ext_resource type="Script" uid="uid://d1254j8gmt5v7" path="res://start.gd" id="1_l0awv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfq5p"]
+font_size = 25
 
 [node name="Succeed" type="CanvasLayer"]
 script = ExtResource("1_l0awv")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 8.0
+offset_left = 86.0
 offset_top = 81.0
-offset_right = 1147.0
+offset_right = 1225.0
 offset_bottom = 156.0
-text = "Dovakin was successful in obtaining the required gold the party required to get their rooms for the night! Now they are able to sleep peacefully and 
-regain their energy for their future fights to keep the vampires at bay."
+text = "The crystals shine brightly as you relight the Forest Lantern. Peace has returned,
+and the village celebrates your courage."
+label_settings = SubResource("LabelSettings_vfq5p")
 
 [node name="Start" type="Button" parent="."]
 offset_left = 177.0

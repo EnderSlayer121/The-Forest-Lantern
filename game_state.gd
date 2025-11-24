@@ -16,6 +16,16 @@ func life_lost() -> void:
 	lives -= 1
 	emit_signal("life_change", lives)
 	if lives <= 0:
-		get_tree().change_scene_to_file("res://level/fail.tscn")
+		get_tree().change_scene_to_file("res://fail.tscn")
+		reset_lives()
+		reset_crystals()
 	else:
 		get_tree().reload_current_scene()
+
+func reset_lives() -> void:
+	lives = 3
+	emit_signal("life_change", lives)
+
+func reset_crystals() -> void:
+	num_crystals = 0
+	emit_signal("crystal_change", num_crystals)

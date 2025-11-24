@@ -8,3 +8,10 @@ func _on_scene_detection_body_entered(body: Node2D) -> void:
 			get_tree().change_scene_to_file("res://screen2alt2.tscn")
 		else:
 			get_tree().change_scene_to_file("res://screen2alt3.tscn")
+
+
+
+func _on_fire_crystal_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		print ("body is in group executed")
+		$Label.visible = true

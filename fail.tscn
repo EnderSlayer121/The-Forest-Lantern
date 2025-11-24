@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://jc5prikatxrl"]
+[gd_scene load_steps=3 format=3 uid="uid://bs85s45afsb8"]
 
-[ext_resource type="Script" uid="uid://dvxfn0yqkh4qr" path="res://start.gd" id="1_plbvm"]
+[ext_resource type="Script" uid="uid://d1254j8gmt5v7" path="res://start.gd" id="1_plbvm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jhv5"]
+font_size = 25
 
 [node name="Fail" type="CanvasLayer"]
 script = ExtResource("1_plbvm")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 81.0
-offset_right = 1147.0
-offset_bottom = 156.0
-text = "Dovakin failed to acquire the required gold that the party needed to be able to sleep in the Inn and were promptly kicked out. The Party was left
- to fend for themselves from the vampires throughout the night, eventually dying from their exhaustion."
+offset_left = 61.0
+offset_top = 83.0
+offset_right = 1200.0
+offset_bottom = 158.0
+text = "Without the lantern’s light, shadows creep into the village. The forest grows silent
+as your mission fades into darkness."
+label_settings = SubResource("LabelSettings_1jhv5")
 
 [node name="Start" type="Button" parent="."]
 offset_left = 177.0

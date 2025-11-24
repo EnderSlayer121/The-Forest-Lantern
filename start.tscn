@@ -1,17 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbw0jjvbeno3p"]
+[gd_scene load_steps=4 format=3 uid="uid://bbw0jjvbeno3p"]
 
 [ext_resource type="Script" uid="uid://d1254j8gmt5v7" path="res://start.gd" id="1_bnhav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ots34"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_qn1rc"]
+font_size = 90
 
 [node name="Start" type="CanvasLayer"]
 script = ExtResource("1_bnhav")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 8.0
+offset_left = 67.0
 offset_top = 81.0
-offset_right = 1147.0
+offset_right = 1206.0
 offset_bottom = 156.0
-text = "A magical Forest Lantern that protects the nearby village has gone out. Your character must collect three special fire crystals from different forest
- areas to relight it."
+text = "“Every night, the Forest Lantern keeps the village safe from wandering spirits. But
+tonight, its light has gone out. Only three ancient fire crystals can awaken it again."
+label_settings = SubResource("LabelSettings_ots34")
 
 [node name="Start" type="Button" parent="."]
 offset_left = 177.0
@@ -26,6 +33,14 @@ offset_top = 213.0
 offset_right = 913.0
 offset_bottom = 286.0
 text = "Quit"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 151.0
+offset_top = 462.0
+offset_right = 972.0
+offset_bottom = 695.0
+text = "The Forest Lantern"
+label_settings = SubResource("LabelSettings_qn1rc")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

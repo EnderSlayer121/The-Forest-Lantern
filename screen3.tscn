@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://shm62v1s501t"]
+[gd_scene load_steps=17 format=4 uid="uid://shm62v1s501t"]
 
 [ext_resource type="Texture2D" uid="uid://t5467i3pgyfj" path="res://TilesetFloor.png" id="1_8w5ya"]
 [ext_resource type="Script" uid="uid://dgwgqhrp65l5n" path="res://screen_3.gd" id="1_iy5vn"]
@@ -599,6 +599,10 @@ sources/1 = SubResource("TileSetAtlasSource_7uvw0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy5vn"]
 size = Vector2(17, 103)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6b31w"]
+font_size = 14
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_iy5vn")
 
@@ -639,22 +643,22 @@ transform = Transform2D(0.2, 0, 0, 0.2, 0, -175)
 
 [node name="Goblin" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
 position = Vector2(89, -135)
-speed = 125.0
+speed = 150.0
 patrol_path = [NodePath("../Node2D/Marker2D"), NodePath("../Node2D/Marker2D2"), NodePath("../Node2D/Marker2D3"), NodePath("../Node2D/Marker2D4")]
 
 [node name="Goblin2" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
 position = Vector2(55, -40)
-speed = 125.0
+speed = 150.0
 patrol_path = [NodePath("../Node2D2/Marker2D"), NodePath("../Node2D2/Marker2D2"), NodePath("../Node2D2/Marker2D3"), NodePath("../Node2D2/Marker2D4")]
 
 [node name="Goblin4" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
 position = Vector2(234, -69)
-speed = 125.0
+speed = 150.0
 patrol_path = [NodePath("../Node2D4/Marker2D"), NodePath("../Node2D4/Marker2D2"), NodePath("../Node2D4/Marker2D3"), NodePath("../Node2D4/Marker2D4")]
 
 [node name="Goblin5" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
 position = Vector2(135, -136)
-speed = 125.0
+speed = 150.0
 patrol_path = [NodePath("../Node2D5/Marker2D"), NodePath("../Node2D5/Marker2D2"), NodePath("../Node2D5/Marker2D3"), NodePath("../Node2D5/Marker2D4")]
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -717,4 +721,14 @@ position = Vector2(6, 31)
 [node name="Marker2D4" type="Marker2D" parent="Node2D5"]
 position = Vector2(-93, 34)
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 9.0
+offset_top = -159.0
+offset_right = 280.0
+offset_bottom = -136.0
+text = "Get the crystals back to the Village!"
+label_settings = SubResource("LabelSettings_6b31w")
+
+[connection signal="body_entered" from="Fire Crystal" to="." method="_on_fire_crystal_body_entered"]
 [connection signal="body_entered" from="Scene Detection" to="." method="_on_scene_detection_body_entered"]
