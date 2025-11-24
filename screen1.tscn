@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dm8hw8tauvfnd"]
+[gd_scene load_steps=14 format=4 uid="uid://dm8hw8tauvfnd"]
 
 [ext_resource type="Texture2D" uid="uid://t5467i3pgyfj" path="res://TilesetFloor.png" id="1_ofqi2"]
 [ext_resource type="Script" uid="uid://c883icdvx34sh" path="res://screen.gd" id="1_qt2y8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="3_lfdmo"]
 [ext_resource type="PackedScene" uid="uid://i7wbee2ocnco" path="res://fire_crystal.tscn" id="4_gxevy"]
 [ext_resource type="PackedScene" uid="uid://bymuvj1wxgreb" path="res://HUD.tscn" id="5_ptkkj"]
+[ext_resource type="PackedScene" uid="uid://cjqc4dbsbxjek" path="res://NPC.tscn" id="7_c5cml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_andjd"]
 texture = ExtResource("1_ofqi2")
@@ -534,5 +535,19 @@ transform = Transform2D(0.2, 0, 0, 0.2, 0, -175)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Detection"]
 position = Vector2(132, -184)
 shape = SubResource("RectangleShape2D_qt2y8")
+
+[node name="Bear" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_c5cml")]
+position = Vector2(150, -103)
+speed = 40.0
+patrol_path = [NodePath("../Node2D/Marker2D"), NodePath("../Node2D/Marker2D2")]
+patrol_wait_time = 2.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(150, -103)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D"]
+position = Vector2(150, -33)
 
 [connection signal="body_entered" from="Scene Detection" to="." method="_on_scene_detection_body_entered"]

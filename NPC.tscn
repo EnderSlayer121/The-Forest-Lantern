@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjqc4dbsbxjek"]
+
+[ext_resource type="PackedScene" uid="uid://cs6tt6xy8keao" path="res://bear.tscn" id="1_twre2"]
+[ext_resource type="Script" uid="uid://bn3wjx1k03u80" path="res://npc.gd" id="2_ll5ud"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ll5ud"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1jv5"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tciug"]
+line_spacing = 0.1
+font_size = 10
+font_color = Color(18.892, 18.892, 18.892, 1)
+outline_size = 1
+outline_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Bear" instance=ExtResource("1_twre2")]
+collision_mask = 6
+script = ExtResource("2_ll5ud")
+speed = 40.0
+patrol_wait_time = 2.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"npc"
+
+[node name="Area2D" parent="." index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+disabled = true
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 0)
+shape = SubResource("CapsuleShape2D_ll5ud")
+
+[node name="Area2D2" type="Area2D" parent="." index="3" groups=["NPC"]]
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" index="0"]
+shape = SubResource("CapsuleShape2D_u1jv5")
+
+[node name="ColorRect" type="ColorRect" parent="." index="4"]
+visible = false
+offset_left = -117.0
+offset_top = -52.0
+offset_right = 105.0
+offset_bottom = -9.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." index="5"]
+visible = false
+offset_left = -112.0
+offset_top = -52.0
+offset_right = 595.0
+offset_bottom = 32.0
+text = "The Forest Lantern has gone dark… 
+The other crystals are hidden deeper inside. 
+Please hurry."
+label_settings = SubResource("LabelSettings_tciug")
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="." method="_on_area_2d_2_area_exited"]

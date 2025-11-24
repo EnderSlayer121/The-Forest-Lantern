@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cs6tt6xy8keao"]
+[gd_scene load_steps=12 format=3 uid="uid://cs6tt6xy8keao"]
 
 [ext_resource type="Script" uid="uid://kht08gf3arvv" path="res://bear.gd" id="1_hq7sg"]
 [ext_resource type="Texture2D" uid="uid://ddq3c6mqqptm8" path="res://Bear enemy.png" id="2_py70x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cj66dfncc4ohk" path="res://Bear enemy right.png" id="4_q5r7r"]
 [ext_resource type="Texture2D" uid="uid://csfglgv6gbldq" path="res://Goblin enemy left.png" id="4_whgdy"]
 [ext_resource type="Texture2D" uid="uid://0d5nh85qpugi" path="res://Goblin enemy right.png" id="5_v5e2u"]
+[ext_resource type="Texture2D" uid="uid://srclcgvi6euu" path="res://NPC.png" id="7_whgdy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whgdy"]
 animations = [{
@@ -64,6 +65,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_whgdy")
+}],
+"loop": true,
+"name": &"npc",
 "speed": 5.0
 }, {
 "frames": [{
