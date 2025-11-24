@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://shm62v1s501t"]
+[gd_scene load_steps=15 format=4 uid="uid://shm62v1s501t"]
 
 [ext_resource type="Texture2D" uid="uid://t5467i3pgyfj" path="res://TilesetFloor.png" id="1_8w5ya"]
+[ext_resource type="Script" uid="uid://dgwgqhrp65l5n" path="res://screen_3.gd" id="1_iy5vn"]
 [ext_resource type="Texture2D" uid="uid://bgfwc13ughhxk" path="res://TilesetForeground.png" id="2_brdts"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="3_7uvw0"]
 [ext_resource type="PackedScene" uid="uid://i7wbee2ocnco" path="res://fire_crystal.tscn" id="4_lwbhc"]
+[ext_resource type="PackedScene" uid="uid://bymuvj1wxgreb" path="res://HUD.tscn" id="5_70lml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_andjd"]
 texture = ExtResource("1_8w5ya")
@@ -593,7 +595,11 @@ texture = ExtResource("2_brdts")
 physics_layer_0/collision_layer = 4
 sources/1 = SubResource("TileSetAtlasSource_7uvw0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy5vn"]
+size = Vector2(17, 103)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_iy5vn")
 
 [node name="Background" type="TileMapLayer" parent="."]
 visibility_layer = 2
@@ -610,7 +616,7 @@ tile_map_data = PackedByteArray("AAAEAPX/AQAEAAAAAAAEAPb/AQAEAAEAAAAFAPX/AQAFAAA
 tile_set = SubResource("TileSet_lwbhc")
 
 [node name="Player" parent="." instance=ExtResource("3_7uvw0")]
-position = Vector2(7, -90)
+position = Vector2(13, -90)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(128, -88)
@@ -618,3 +624,16 @@ zoom = Vector2(4.5, 3.7)
 
 [node name="Fire Crystal" parent="." instance=ExtResource("4_lwbhc")]
 position = Vector2(233, -104)
+
+[node name="Scene Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Detection"]
+position = Vector2(-7, -89.5)
+shape = SubResource("RectangleShape2D_iy5vn")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_70lml")]
+offset = Vector2(0, -175)
+scale = Vector2(0.2, 0.2)
+transform = Transform2D(0.2, 0, 0, 0.2, 0, -175)
+
+[connection signal="body_entered" from="Scene Detection" to="." method="_on_scene_detection_body_entered"]

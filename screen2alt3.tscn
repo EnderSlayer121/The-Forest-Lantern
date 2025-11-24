@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1wm6lnsb87o1"]
+
+[ext_resource type="PackedScene" uid="uid://w2dwixkfit2l" path="res://screen2alt2.tscn" id="1_vxy53"]
+
+[node name="Node2D" instance=ExtResource("1_vxy53")]
+
+[node name="Fire Crystal" parent="." index="5"]
+position = Vector2(-57, -112)
