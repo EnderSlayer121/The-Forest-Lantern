@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxpdvtnd8eir"]
+
+[ext_resource type="PackedScene" uid="uid://cs6tt6xy8keao" path="res://bear.tscn" id="1_dl46o"]
+[ext_resource type="Script" uid="uid://nceraan1tghe" path="res://goblin.gd" id="2_u6mjv"]
+
+[node name="Goblin" instance=ExtResource("1_dl46o")]
+script = ExtResource("2_u6mjv")
+speed = 125.0
+patrol_wait_time = 0.5
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"gfront"
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 0)

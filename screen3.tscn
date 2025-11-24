@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://shm62v1s501t"]
+[gd_scene load_steps=16 format=4 uid="uid://shm62v1s501t"]
 
 [ext_resource type="Texture2D" uid="uid://t5467i3pgyfj" path="res://TilesetFloor.png" id="1_8w5ya"]
 [ext_resource type="Script" uid="uid://dgwgqhrp65l5n" path="res://screen_3.gd" id="1_iy5vn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="3_7uvw0"]
 [ext_resource type="PackedScene" uid="uid://i7wbee2ocnco" path="res://fire_crystal.tscn" id="4_lwbhc"]
 [ext_resource type="PackedScene" uid="uid://bymuvj1wxgreb" path="res://HUD.tscn" id="5_70lml"]
+[ext_resource type="PackedScene" uid="uid://dvxpdvtnd8eir" path="res://goblin.tscn" id="7_6b31w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_andjd"]
 texture = ExtResource("1_8w5ya")
@@ -623,7 +624,7 @@ position = Vector2(128, -88)
 zoom = Vector2(4.5, 3.7)
 
 [node name="Fire Crystal" parent="." instance=ExtResource("4_lwbhc")]
-position = Vector2(233, -104)
+position = Vector2(233, -88)
 
 [node name="Scene Detection" type="Area2D" parent="."]
 
@@ -635,5 +636,85 @@ shape = SubResource("RectangleShape2D_iy5vn")
 offset = Vector2(0, -175)
 scale = Vector2(0.2, 0.2)
 transform = Transform2D(0.2, 0, 0, 0.2, 0, -175)
+
+[node name="Goblin" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
+position = Vector2(89, -135)
+speed = 125.0
+patrol_path = [NodePath("../Node2D/Marker2D"), NodePath("../Node2D/Marker2D2"), NodePath("../Node2D/Marker2D3"), NodePath("../Node2D/Marker2D4")]
+
+[node name="Goblin2" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
+position = Vector2(55, -40)
+speed = 125.0
+patrol_path = [NodePath("../Node2D2/Marker2D"), NodePath("../Node2D2/Marker2D2"), NodePath("../Node2D2/Marker2D3"), NodePath("../Node2D2/Marker2D4")]
+
+[node name="Goblin4" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
+position = Vector2(234, -69)
+speed = 125.0
+patrol_path = [NodePath("../Node2D4/Marker2D"), NodePath("../Node2D4/Marker2D2"), NodePath("../Node2D4/Marker2D3"), NodePath("../Node2D4/Marker2D4")]
+
+[node name="Goblin5" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_6b31w")]
+position = Vector2(135, -136)
+speed = 125.0
+patrol_path = [NodePath("../Node2D5/Marker2D"), NodePath("../Node2D5/Marker2D2"), NodePath("../Node2D5/Marker2D3"), NodePath("../Node2D5/Marker2D4")]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(112, -134)
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(-23, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D"]
+position = Vector2(-22, 95)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D"]
+position = Vector2(-57, 94)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D"]
+position = Vector2(-57, -1)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(88, -39)
+
+[node name="Marker2D" type="Marker2D" parent="Node2D2"]
+position = Vector2(-33, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D2"]
+position = Vector2(-33, -96)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D2"]
+position = Vector2(1, -96)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D2"]
+position = Vector2(2, 0)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(164, -37)
+
+[node name="Marker2D" type="Marker2D" parent="Node2D4"]
+position = Vector2(70, -33)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D4"]
+position = Vector2(-29, -34)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D4"]
+position = Vector2(-29, -1)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D4"]
+position = Vector2(70, -2)
+
+[node name="Node2D5" type="Node2D" parent="."]
+position = Vector2(228, -137)
+
+[node name="Marker2D" type="Marker2D" parent="Node2D5"]
+position = Vector2(-93, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D5"]
+position = Vector2(6, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D5"]
+position = Vector2(6, 31)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D5"]
+position = Vector2(-93, 34)
 
 [connection signal="body_entered" from="Scene Detection" to="." method="_on_scene_detection_body_entered"]
