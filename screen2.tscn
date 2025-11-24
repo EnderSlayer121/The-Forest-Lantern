@@ -687,21 +687,6 @@ patrol_path = [NodePath("../Node2D/Marker2D"), NodePath("../Node2D/Marker2D2"), 
 position = Vector2(217, -104)
 patrol_path = [NodePath("../Node2D2/Marker2D"), NodePath("../Node2D2/Marker2D2"), NodePath("../Node2D2/Marker2D3"), NodePath("../Node2D2/Marker2D4")]
 
-[node name="Node2D3" type="Node2D" parent="."]
-position = Vector2(141, -71)
-
-[node name="Marker2D" type="Marker2D" parent="Node2D3"]
-position = Vector2(-36, -65)
-
-[node name="Marker2D2" type="Marker2D" parent="Node2D3"]
-position = Vector2(-36, -34)
-
-[node name="Marker2D3" type="Marker2D" parent="Node2D3"]
-position = Vector2(-68, -33)
-
-[node name="Marker2D4" type="Marker2D" parent="Node2D3"]
-position = Vector2(-69, -65)
-
 [node name="Node2D4" type="Node2D" parent="."]
 position = Vector2(149, -88)
 
@@ -717,32 +702,9 @@ position = Vector2(-108, -48)
 [node name="Marker2D4" type="Marker2D" parent="Node2D4"]
 position = Vector2(-109, -16)
 
-[node name="Node2D5" type="Node2D" parent="."]
-position = Vector2(144, -108)
-
-[node name="Marker2D" type="Marker2D" parent="Node2D5"]
-position = Vector2(-71, 66)
-
-[node name="Marker2D2" type="Marker2D" parent="Node2D5"]
-position = Vector2(-71, 37)
-
-[node name="Marker2D3" type="Marker2D" parent="Node2D5"]
-position = Vector2(-103, 36)
-
-[node name="Marker2D4" type="Marker2D" parent="Node2D5"]
-position = Vector2(-103, 66)
-
-[node name="Bear3" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_ak2gm")]
-position = Vector2(104, -136)
-patrol_path = [NodePath("../Node2D3/Marker2D"), NodePath("../Node2D3/Marker2D2"), NodePath("../Node2D3/Marker2D3"), NodePath("../Node2D3/Marker2D4")]
-
 [node name="Bear4" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_ak2gm")]
 position = Vector2(73, -104)
 patrol_path = [NodePath("../Node2D4/Marker2D"), NodePath("../Node2D4/Marker2D2"), NodePath("../Node2D4/Marker2D3"), NodePath("../Node2D4/Marker2D4")]
-
-[node name="Bear5" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("7_ak2gm")]
-position = Vector2(71, -42)
-patrol_path = [NodePath("../Node2D5/Marker2D"), NodePath("../Node2D5/Marker2D2"), NodePath("../Node2D5/Marker2D3"), NodePath("../Node2D5/Marker2D4")]
 
 [connection signal="body_entered" from="Scene Detection" to="." method="_on_scene_detection_body_entered"]
 [connection signal="body_entered" from="Scene Detection2" to="." method="_on_scene_detection_2_body_entered"]

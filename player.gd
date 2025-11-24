@@ -30,10 +30,11 @@ func play_movement_animation(velocity: Vector2):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("SOMETHING touched me: ", body)
 	if body.is_in_group("Enemy"):
-		print ("body is in group executed")
+		print ("body took damage (Player)")
 		take_damage()
 
 func take_damage():
 	GameState.life_lost()
-	
+	print ("body taking damage (Player)")
