@@ -14,10 +14,19 @@ config/name="New Game Project"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://game_state.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[global_group]
+
+Player=""
+Crystal=""
 
 [input]
 
@@ -47,6 +56,7 @@ down={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Ground"
 2d_physics/layer_3="Decoration"
+2d_physics/layer_4="Crystals"
 
 [rendering]
 

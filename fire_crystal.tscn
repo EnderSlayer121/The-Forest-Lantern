@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://i7wbee2ocnco"]
+
+[ext_resource type="Texture2D" uid="uid://bgfwc13ughhxk" path="res://TilesetForeground.png" id="1_pj22m"]
+[ext_resource type="Script" uid="uid://dkavcthoxq5mq" path="res://fire_crystal.gd" id="1_y3fyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3fyv"]
+size = Vector2(8, 16)
+
+[node name="Fire Crystal" type="Area2D" groups=["Crystal"]]
+collision_layer = 8
+script = ExtResource("1_y3fyv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pj22m")
+hframes = 24
+vframes = 17
+frame = 197
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y3fyv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
