@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dm8hw8tauvfnd"]
+[gd_scene load_steps=11 format=4 uid="uid://dm8hw8tauvfnd"]
 
 [ext_resource type="Texture2D" uid="uid://t5467i3pgyfj" path="res://TilesetFloor.png" id="1_ofqi2"]
 [ext_resource type="Texture2D" uid="uid://bgfwc13ughhxk" path="res://TilesetForeground.png" id="2_7ilh0"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="3_lfdmo"]
 [ext_resource type="PackedScene" uid="uid://i7wbee2ocnco" path="res://fire_crystal.tscn" id="4_gxevy"]
+[ext_resource type="PackedScene" uid="uid://bymuvj1wxgreb" path="res://HUD.tscn" id="5_ptkkj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_andjd"]
 texture = ExtResource("1_ofqi2")
@@ -517,3 +518,8 @@ zoom = Vector2(4.5, 3.7)
 
 [node name="Fire Crystal" parent="." instance=ExtResource("4_gxevy")]
 position = Vector2(56, -90)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_ptkkj")]
+offset = Vector2(0, -175)
+scale = Vector2(0.2, 0.2)
+transform = Transform2D(0.2, 0, 0, 0.2, 0, -175)

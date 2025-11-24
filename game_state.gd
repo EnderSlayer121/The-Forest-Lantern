@@ -10,6 +10,7 @@ var current_state = PlayerState.BASE
 func give_crystal(num: int) -> void:
 	num_crystals += num
 	emit_signal("crystal_change", num_crystals)
+	print ("emitted signal")
 
 func life_lost() -> void:
 	lives -= 1
